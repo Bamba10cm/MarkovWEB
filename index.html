@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Платформа задач сотрудников</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js для графиков -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Платформа задач сотрудников</h1>
+
+    <nav class="view-switcher">
+      <button class="tab-btn active" data-view="employee-view">Сотрудник</button>
+      <button class="tab-btn" data-view="manager-view">Руководитель</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="employee-view" class="view active">
+      <div class="employee-layout">
+        <aside class="employee-list">
+          <h2>Сотрудники</h2>
+          <ul id="employeeList"></ul>
+        </aside>
+
+        <section class="tasks-section">
+          <h2 id="employeeNameTitle">Задания сотрудника</h2>
+          <ul id="taskList"></ul>
+        </section>
+
+        <aside class="chat-section">
+          <h2>Чат сотрудников</h2>
+          <div class="chat-window" id="chatWindow"></div>
+          <div class="chat-input">
+            <input
+              type="text"
+              id="chatMessageInput"
+              placeholder="Введите сообщение..."
+            />
+            <button id="sendMessageBtn">Отправить</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="manager-view" class="view">
+      <div class="manager-layout">
+        <header class="manager-header">
+          <h2>Отчетность по выполнению заданий</h2>
+
+          <label>
+            Выберите сотрудника:
+            <select id="managerEmployeeSelect"></select>
+          </label>
+        </header>
+
+        <section class="charts-grid">
+          <div class="chart-card">
+            <h3>Общий прогресс по сотрудникам</h3>
+            <canvas id="overallProgressChart"></canvas>
+          </div>
+
+          <div class="chart-card">
+            <h3>Задачи выбранного сотрудника</h3>
+            <canvas id="employeeTasksChart"></canvas>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script src="app.js"></script>
+</body>
+</html>
